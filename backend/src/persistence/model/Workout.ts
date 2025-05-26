@@ -1,27 +1,29 @@
 import mongoose, { Schema, Document } from 'mongoose';
-import { Workout as WorkoutScore } from '../../domain/Workout';
+import { ScoreState, Workout as WorkoutScore } from '../../domain/Workout';
 
 interface WorkoutDocument extends Document {
 	workoutId: number;
+	userId: number;
 	type: string;
 	createdDate: Date;
 	updatedDate: Date;
 	startDate: Date;
 	endDate: Date;
 	timezoneOffset: string;
-	scoreState: "SCORED" | "PENDING_SCORE" | "UNSCORABLE";
+	scoreState: ScoreState;
 	score: WorkoutScore;
 }
 
 const WorkoutSchema = new Schema<WorkoutDocument>({
 	workoutId: { type: Number, required: true },
+	userId: { type: Number, required: true },
 	type: { type: String, required: true },
 	createdDate: { type: Date, required: true },
 	updatedDate: { type: Date, required: true },
 	startDate: { type: Date, required: true },
 	endDate: { type: Date, required: true },
 	timezoneOffset: { type: String, required: true },
-	scoreState: { type: String, required: true },
+	scoreState: { type: String, required: true, enum: ["SCORED", "PENDING_SCORE", "UNSCORABLE"] },
 	score: {
 		strain: { type: Number, required: true },
 		averageHeartRate: { type: Number, required: true },

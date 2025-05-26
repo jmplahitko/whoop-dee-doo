@@ -1,14 +1,17 @@
 export interface Workout {
 	id: number;
+	userId: number;
 	type: string;
 	createdDate: Date;
 	updatedDate: Date;
 	startDate: Date;
 	endDate: Date;
 	timezoneOffset: string;
-	scoreState: "SCORED" | "PENDING_SCORE" | "UNSCORABLE";
+	scoreState: ScoreState;
 	score: WorkoutScore;
 }
+
+export type ScoreState = "SCORED" | "PENDING_SCORE" | "UNSCORABLE";
 
 export interface WorkoutScore {
 	strain: number;
