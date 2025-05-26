@@ -1,13 +1,17 @@
 {
 	"name": "whoop-dee-doo",
 	"version": "1.0.0",
+	"private": true,
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
+		"dev:frontend": "cd frontend && npm run dev",
+		"dev:backend": "cd backend && npm run dev",
+		"build": "concurrently \"npm run build:frontend\" \"npm run build:backend\"",
+		"build:frontend": "cd frontend && npm run build",
+		"build:backend": "cd backend && npm run build",
+		"start": "cd backend && npm start"
 	},
-	"author": "",
-	"license": "ISC",
-	"description": "",
 	"devDependencies": {
-		"lerna": "^8.1.8"
+		"concurrently": "^8.2.2"
 	}
 }
