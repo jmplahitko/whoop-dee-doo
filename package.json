@@ -1,17 +1,26 @@
 {
-	"name": "whoop-dee-doo",
-	"version": "1.0.0",
+	"name": "whoop-dee-doo-frontend",
 	"private": true,
+	"version": "1.0.0",
+	"type": "module",
 	"scripts": {
-		"dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
-		"dev:frontend": "cd frontend && npm run dev",
-		"dev:backend": "cd backend && npm run dev",
-		"build": "concurrently \"npm run build:frontend\" \"npm run build:backend\"",
-		"build:frontend": "cd frontend && npm run build",
-		"build:backend": "cd backend && npm run build",
-		"start": "cd backend && npm start"
+		"build": "nuxt build",
+		"dev": "nuxt dev",
+		"generate": "nuxt generate",
+		"preview": "nuxt preview",
+		"postinstall": "nuxt prepare"
+	},
+	"dependencies": {
+		"@nuxt/ui": "^3.2.0",
+		"nuxt": "^4.0.0",
+		"nuxt-auth-utils": "^0.5.20",
+		"vue": "^3.3.4",
+		"vue-router": "^4.5.1"
 	},
 	"devDependencies": {
-		"concurrently": "^8.2.2"
+		"@nuxtjs/eslint-config-typescript": "^12.1.0",
+		"@types/node": "^20.19.8",
+		"eslint": "^8.57.1",
+		"typescript": "^5.8.3"
 	}
 }
