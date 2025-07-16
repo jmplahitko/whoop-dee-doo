@@ -5,5 +5,6 @@
 </template>
 
 <script setup lang="ts">
-// Component logic will go here
+// Authentication logic will be handled in individual pages
+// to avoid TypeScript issues with Nuxt composables
 </script>

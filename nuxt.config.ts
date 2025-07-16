@@ -5,9 +5,15 @@ export default defineNuxtConfig({
 		'@nuxt/ui',
 		'nuxt-auth-utils'
 	],
+	css: ['assets/css/main.css'],
 	runtimeConfig: {
 		public: {
 			apiBase: process.env.API_BASE || 'http://localhost:3001/api'
+		},
+		whoop: {
+			clientId: process.env.WHOOP_CLIENT_ID,
+			clientSecret: process.env.WHOOP_CLIENT_SECRET,
+			redirectUri: process.env.WHOOP_REDIRECT_URI || 'http://localhost:3000/api/auth/callback'
 		}
 	}
 })
