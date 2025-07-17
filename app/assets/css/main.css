@@ -1,2 +1,56 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
+
+/* Uses Whoop Color Palette */
+:root {
+  --black: #000000;
+  --gray: #6B7280;
+  --white: #FFFFFF;
+  --teal: #00F19F;
+  --sky: #67AEE6;
+  --green: #16EC06;
+  --yellow: #FFDE00;
+  --red: #FF0026;
+  --slate: #7BA1BB;
+  --blue: #0093E7;
+  --ui-bg: #101518;
+}
+
+@theme {
+  --color-black: var(--black);
+  --color-gray: var(--gray);
+  --color-white: var(--white);
+  --color-teal: var(--teal);
+  --color-sky: var(--sky);
+  --color-green: var(--green);
+  --color-yellow: var(--yellow);
+  --color-red: var(--red);
+  --color-slate: var(--slate);
+  --color-blue: var(--blue);
+
+  --color-recovery: var(--sky);
+  --color-recovery-high: var(--green);
+  --color-recovery-medium: var(--yellow);
+  --color-recovery-low: var(--red);
+  --color-sleep: var(--slate);
+  --color-strain: var(--blue);
+  
+  /* Extend existing colors with Whoop palette */
+  --color-primary: var(--teal);
+  --color-secondary: var(--blue);
+  --color-success: var(--green);
+  --color-warning: var(--yellow);
+  --color-error: var(--red);
+  --color-info: var(--sky);
+
+  --color-gray-50: #6B7280;
+  --color-gray-100: #5B6370;
+  --color-gray-200: #4B5563;
+  --color-gray-300: #434A57;
+  --color-gray-400: #374151;
+  --color-gray-500: #30363F;
+  --color-gray-600: #283339;
+  --color-gray-700: #1C222A;
+  --color-gray-800: #161A1F;
+  --color-gray-900: #101518;
+}
