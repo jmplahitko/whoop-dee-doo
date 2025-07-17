@@ -53,4 +53,24 @@
   --color-gray-700: #1C222A;
   --color-gray-800: #161A1F;
   --color-gray-900: #101518;
+
+  /* Font Families */
+  --font-headline: 'Proxima Nova', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+  --font-body: 'Proxima Nova', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+  --font-numbers: 'DINPro', 'DIN Alternate', Arial, sans-serif;
+
+  /* Typography Styles */
+  --font-weight-headline: 700;
+  --font-weight-body: 600;
+  --font-weight-numbers: 700;
+
+  /* Letter Spacing */
+  --letter-spacing-headline: 0.1em;
+  --letter-spacing-body: normal;
+  --letter-spacing-numbers: normal;
+
+  /* Text Transform */
+  --text-transform-headline: uppercase;
+  --text-transform-body: none;
+  --text-transform-numbers: none;
 }

@@ -6,6 +6,9 @@ export default defineNuxtConfig({
 		'nuxt-auth-utils'
 	],
 	css: ['assets/css/main.css'],
+	ui: {
+		fonts: false
+	},
 	runtimeConfig: {
 		public: {
 			apiBase: process.env.API_BASE || 'http://localhost:3001/api'
