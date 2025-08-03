@@ -48,16 +48,6 @@ export default defineEventHandler(async (event) => {
 		let nextToken = response.next_token;
 		let error = null;
 
-		// do {
-		// 	try {
-		// 		response = await fetchWorkouts(event, params);
-		// 		workouts = [...workouts, ...response.records];
-		// 		nextToken = response.next_token;
-		// 	} catch (e: any) {
-		// 		error = e;
-		// 	}
-		// } while (nextToken && !error);
-
 		console.log(workouts);
 
 		if (sportName) {
@@ -72,7 +62,8 @@ export default defineEventHandler(async (event) => {
 		return {
 			workouts,
 			sportNames,
-			total: workouts.length
+			total: workouts.length,
+			nextToken
 		}
 
 	} catch (error: any) {
