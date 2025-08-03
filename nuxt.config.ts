@@ -1,3 +1,5 @@
+import path from 'path';
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
 	devtools: { enabled: true },
@@ -8,6 +10,9 @@ export default defineNuxtConfig({
 	css: ['assets/css/main.css'],
 	ui: {
 		fonts: false
+	},
+	alias: {
+		'@model': path.resolve(__dirname, 'model')
 	},
 	runtimeConfig: {
 		public: {
