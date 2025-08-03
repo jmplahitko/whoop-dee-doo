@@ -76,6 +76,20 @@ const formatDateForAPI = (date: Date): string => {
 	return date.toISOString()
 }
 
+// Format date to start of day (00:00:00)
+const formatStartDateForAPI = (date: Date): string => {
+	const startOfDay = new Date(date)
+	startOfDay.setHours(0, 0, 0, 0)
+	return startOfDay.toISOString()
+}
+
+// Format date to end of day (23:59:59)
+const formatEndDateForAPI = (date: Date): string => {
+	const endOfDay = new Date(date)
+	endOfDay.setHours(23, 59, 59, 999)
+	return endOfDay.toISOString()
+}
+
 // Calculate timeframe based on type
 const calculateTimeframe = (type: TimeframeType): Timeframe => {
 	const now = today.value
@@ -86,8 +100,8 @@ const calculateTimeframe = (type: TimeframeType): Timeframe => {
 			const end = getEndOfWeek(now)
 			return {
 				type,
-				startDate: formatDateForAPI(start),
-				endDate: formatDateForAPI(end),
+				startDate: formatStartDateForAPI(start),
+				endDate: formatEndDateForAPI(end),
 				label: 'This Week'
 			}
 		}
@@ -99,8 +113,8 @@ const calculateTimeframe = (type: TimeframeType): Timeframe => {
 			const end = getEndOfWeek(lastWeek)
 			return {
 				type,
-				startDate: formatDateForAPI(start),
-				endDate: formatDateForAPI(end),
+				startDate: formatStartDateForAPI(start),
+				endDate: formatEndDateForAPI(end),
 				label: 'Last Week'
 			}
 		}
@@ -110,8 +124,8 @@ const calculateTimeframe = (type: TimeframeType): Timeframe => {
 			const end = getEndOfMonth(now)
 			return {
 				type,
-				startDate: formatDateForAPI(start),
-				endDate: formatDateForAPI(end),
+				startDate: formatStartDateForAPI(start),
+				endDate: formatEndDateForAPI(end),
 				label: 'This Month'
 			}
 		}
@@ -122,8 +136,8 @@ const calculateTimeframe = (type: TimeframeType): Timeframe => {
 			const end = getEndOfMonth(lastMonth)
 			return {
 				type,
-				startDate: formatDateForAPI(start),
-				endDate: formatDateForAPI(end),
+				startDate: formatStartDateForAPI(start),
+				endDate: formatEndDateForAPI(end),
 				label: 'Last Month'
 			}
 		}
@@ -133,8 +147,8 @@ const calculateTimeframe = (type: TimeframeType): Timeframe => {
 			const end = getEndOfQuarter(now)
 			return {
 				type,
-				startDate: formatDateForAPI(start),
-				endDate: formatDateForAPI(end),
+				startDate: formatStartDateForAPI(start),
+				endDate: formatEndDateForAPI(end),
 				label: 'This Quarter'
 			}
 		}
@@ -146,8 +160,8 @@ const calculateTimeframe = (type: TimeframeType): Timeframe => {
 			const end = getEndOfQuarter(lastQuarter)
 			return {
 				type,
-				startDate: formatDateForAPI(start),
-				endDate: formatDateForAPI(end),
+				startDate: formatStartDateForAPI(start),
+				endDate: formatEndDateForAPI(end),
 				label: 'Last Quarter'
 			}
 		}
@@ -157,8 +171,8 @@ const calculateTimeframe = (type: TimeframeType): Timeframe => {
 			const end = getEndOfHalf(now)
 			return {
 				type,
-				startDate: formatDateForAPI(start),
-				endDate: formatDateForAPI(end),
+				startDate: formatStartDateForAPI(start),
+				endDate: formatEndDateForAPI(end),
 				label: 'This Half'
 			}
 		}
@@ -170,8 +184,8 @@ const calculateTimeframe = (type: TimeframeType): Timeframe => {
 			const end = getEndOfHalf(lastHalf)
 			return {
 				type,
-				startDate: formatDateForAPI(start),
-				endDate: formatDateForAPI(end),
+				startDate: formatStartDateForAPI(start),
+				endDate: formatEndDateForAPI(end),
 				label: 'Last Half'
 			}
 		}
@@ -181,8 +195,8 @@ const calculateTimeframe = (type: TimeframeType): Timeframe => {
 			const end = getEndOfYear(now)
 			return {
 				type,
-				startDate: formatDateForAPI(start),
-				endDate: formatDateForAPI(end),
+				startDate: formatStartDateForAPI(start),
+				endDate: formatEndDateForAPI(end),
 				label: 'This Year'
 			}
 		}
@@ -193,8 +207,8 @@ const calculateTimeframe = (type: TimeframeType): Timeframe => {
 			const end = getEndOfYear(lastYear)
 			return {
 				type,
-				startDate: formatDateForAPI(start),
-				endDate: formatDateForAPI(end),
+				startDate: formatStartDateForAPI(start),
+				endDate: formatEndDateForAPI(end),
 				label: 'Last Year'
 			}
 		}

@@ -18,7 +18,7 @@ definePageMeta({
 });
 
 const { user } = useUserSession();
-// const { workouts } = useWorkouts();
+const { workouts } = useWorkouts();
 const { currentTimeframe, selectedTimeframe } = useTimeframe();
 
 </script>
