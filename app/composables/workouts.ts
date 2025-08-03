@@ -1,6 +1,3 @@
-import type { WhoopWorkoutQuery, WhoopWorkout } from '@model/whoop';
-import { useTimeframe } from './timeframe';
-
 const toGetWorkouts = () => '/api/whoop/workouts';
 const toGetWorkout = (id: string) => `/api/whoop/workouts/${id}`;
 

@@ -1,5 +1,5 @@
-declare module 'wdd' {
-	interface UserProfile {
+declare module '#auth-utils' {
+	interface User {
 		id: string
 		email: string
 		fullName: string
@@ -8,8 +8,10 @@ declare module 'wdd' {
 	}
 
 	interface UserSession {
-		user: UserProfile
+		user: User
 		whoopAccessToken: string
 		whoopRefreshToken: string
 	}
 }
+
+export { }

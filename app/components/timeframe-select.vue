@@ -2,7 +2,7 @@
 	<div class="flex items-center gap-2">
 		<label for="timeframe" class="text-white">Timeframe:</label>
 		<div class="flex items-center">
-			<select v-model="selectedTimeframe" @change="handleTimeframeChange" class="appearance-none mr-3 text-white">
+			<select v-model="_selectedTimeframe" class="appearance-none mr-3 text-white focus:outline-none">
 				<option v-for="option in timeframeOptions" :key="option.value" :value="option.value">
 					{{ option.label }}
 				</option>
@@ -17,16 +17,10 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
-import type { TimeframeType } from '../composables/timeframe';
-import { useTimeframe } from '../composables/timeframe';
-
-const { currentTimeframe, getTimeframeOptions, setTimeframe } = useTimeframe();
-const timeframeOptions = computed(() => getTimeframeOptions());
-const selectedTimeframe = computed(() => currentTimeframe.value.type);
-
-const handleTimeframeChange = (event: Event) => {
-	const target = event.target as HTMLSelectElement;
-	setTimeframe(target.value as TimeframeType);
-};
+const { getTimeframeOptions, setTimeframe, selectedTimeframe } = useTimeframe();
+const timeframeOptions = getTimeframeOptions();
+const _selectedTimeframe = computed({
+	get: () => selectedTimeframe.value,
+	set: (value) => setTimeframe(value as TimeframeType)
+});
 </script>
