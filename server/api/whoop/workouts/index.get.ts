@@ -48,8 +48,6 @@ export default defineEventHandler(async (event) => {
 		let nextToken = response.next_token;
 		let error = null;
 
-		console.log(workouts);
-
 		if (sportName) {
 			workouts = workouts.filter((workout: any) =>
 				workout.sport_name?.toLowerCase() === (sportName as string).toLowerCase()
@@ -90,7 +88,7 @@ export default defineEventHandler(async (event) => {
 	}
 })
 
-async function fetchWorkouts(event: any, params: URLSearchParams) {
+async function fetchWorkouts(event: any, params: URLSearchParams): Promise<WhoopCollectionResponse<WhoopWorkout>> {
 	const session = await getUserSession(event)
 	if (!session?.whoopAccessToken) {
 		throw createError({
@@ -99,7 +97,7 @@ async function fetchWorkouts(event: any, params: URLSearchParams) {
 		})
 	}
 
-	return await $fetch(`https://api.prod.whoop.com/developer/v2/activity/workout?${params.toString()}`, {
+	return await $fetch<WhoopCollectionResponse<WhoopWorkout>>(`https://api.prod.whoop.com/developer/v2/activity/workout?${params.toString()}`, {
 		headers: {
 			Authorization: `Bearer ${session.whoopAccessToken}`
 		}

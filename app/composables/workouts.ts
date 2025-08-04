@@ -2,10 +2,10 @@ const toGetWorkouts = () => '/api/whoop/workouts';
 const toGetWorkout = (id: string) => `/api/whoop/workouts/${id}`;
 
 export const useWorkouts = () => {
-	const workouts = useState<WhoopWorkout[]>('whoop.workouts', () => []);
-	const currentSportNames = useState<string[]>('whoop.sportNames', () => []);
-	const currentTotal = useState<number>('whoop.total', () => 0);
-	const nextToken = useState<string | null>('whoop.nextToken', () => null);
+	const workouts = useState<WhoopWorkout[]>('workouts.current', () => []);
+	const currentSportNames = useState<string[]>('workouts.sportNames', () => []);
+	const currentTotal = useState<number>('workouts.total', () => 0);
+	const nextToken = useState<string | null>('workouts.nextToken', () => null);
 	const { currentTimeframe } = useTimeframe();
 
 	const { data, pending, error, refresh } = useFetch<WhoopWorkoutResponse>(toGetWorkouts(), {
@@ -27,7 +27,7 @@ export const useWorkouts = () => {
 	}, { immediate: true });
 
 	return {
-		workouts: readonly(workouts),
+		workouts: workouts,
 		currentSportNames: readonly(currentSportNames),
 		currentTotal: readonly(currentTotal),
 		nextToken: readonly(nextToken),
