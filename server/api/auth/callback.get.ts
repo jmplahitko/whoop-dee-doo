@@ -1,5 +1,4 @@
 import { defineEventHandler, getQuery, createError, sendRedirect } from 'h3'
-import type { WhoopUserProfile, WhoopTokenResponse } from '../../../model/whoop'
 
 export default defineEventHandler(async (event) => {
 	const config = useRuntimeConfig()

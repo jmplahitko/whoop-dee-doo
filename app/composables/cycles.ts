@@ -1,4 +1,3 @@
-import { useTimeframe } from './timeframe';
 
 const toGetCycles = () => '/api/whoop/cycles';
 const toGetCycle = (id: string) => `/api/whoop/cycles/${id}`;
