@@ -165,6 +165,13 @@ declare global {
 		PublicSpeaking = 272
 	}
 
+	export interface WhoopWorkoutResponse {
+		workouts: WhoopWorkout[]
+		sportNames: string[]
+		total: number
+		nextToken: string | null
+	}
+
 	export interface WhoopTokenResponse {
 		access_token: string
 		refresh_token: string
