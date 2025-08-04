@@ -38,8 +38,7 @@ const strokeDashoffset = computed(() => {
 
 // Format strain value for display
 const strainValue = computed(() => {
-	if (!props.strain) return 'N/A';
-	return props.strain.toFixed(1);
+	return props.strain?.toFixed(1) ?? 0;
 });
 
 // Determine color based on strain level
