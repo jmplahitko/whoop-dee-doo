@@ -1,41 +1,73 @@
 declare global {
+	export interface WhoopCycleQuery {
+		limit?: number;
+		startDate?: string;
+		endDate?: string;
+		nextToken?: string;
+	}
+
+	export interface WhoopCycleScore {
+		strain: number;
+		kilojoule: number;
+		average_heart_rate: number;
+		max_heart_rate: number;
+	}
+
+	export interface WhoopCycle {
+		id: number;
+		user_id: number;
+		created_at: string;
+		updated_at: string;
+		start: string;
+		end: string;
+		timezone_offset: string;
+		score_state: string;
+		score: WhoopCycleScore
+	}
+
 	export interface WhoopWorkoutQuery {
-		sportName?: string
-		startDate?: string
-		endDate?: string
-		limit?: number
+		sportName?: string;
+		startDate?: string;
+		endDate?: string;
+		limit?: number;
+		nextToken?: string;
+	}
+
+	export interface WhoopCycleResponse {
+		cycles: WhoopCycle[]
+		nextToken: string | null
 	}
 
 	export interface WhoopWorkoutScore {
-		strain: number
-		average_heart_rate: number
-		max_heart_rate: number
-		kilojoule: number
-		percent_recorded: number
-		distance_meter: number
-		altitude_gain_meter: number
-		altitude_change_meter: number
+		strain: number;
+		average_heart_rate: number;
+		max_heart_rate: number;
+		kilojoule: number;
+		percent_recorded: number;
+		distance_meter: number;
+		altitude_gain_meter: number;
+		altitude_change_meter: number;
 		zone_durations: {
-			zone_zero_milli: number
-			zone_one_milli: number
-			zone_two_milli: number
-			zone_three_milli: number
-			zone_four_milli: number
-			zone_five_milli: number
+			zone_zero_milli: number;
+			zone_one_milli: number;
+			zone_two_milli: number;
+			zone_three_milli: number;
+			zone_four_milli: number;
+			zone_five_milli: number;
 		}
 	}
 
 	export interface WhoopWorkout {
-		id: string
-		v1_id: number
-		user_id: number
-		created_at: string
-		updated_at: string
-		start: string
-		end: string
-		timezone_offset: string
-		sport_name: string
-		score_state: string
+		id: string;
+		v1_id: number;
+		user_id: number;
+		created_at: string;
+		updated_at: string;
+		start: string;
+		end: string;
+		timezone_offset: string;
+		sport_name: string;
+		score_state: string;
 		score: WhoopWorkoutScore
 		sport_id: number
 	}
@@ -181,6 +213,11 @@ declare global {
 		email: string
 		first_name: string
 		last_name: string
+	}
+
+	export interface WhoopCollectionResponse<T> {
+		records: T[]
+		next_token: string | null
 	}
 }
 
