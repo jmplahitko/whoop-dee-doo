@@ -36,8 +36,8 @@ export default defineEventHandler(async (event) => {
 			headers: {
 				'Authorization': `Bearer ${session.whoopAccessToken}`
 			}
-		})
-		console.log(response)
+		});
+
 		return {
 			cycles: response.records,
 			nextToken: response.next_token
