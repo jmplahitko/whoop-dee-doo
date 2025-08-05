@@ -26,13 +26,12 @@
 <script setup lang="ts">
 import type { TableColumn } from '@nuxt/ui';
 import { h } from 'vue'
-import { UButton, UBadge, UIcon, StrainCircle, UPopover } from '#components';
+import { UButton, UIcon, StrainCircle, UPopover } from '#components';
 
 definePageMeta({
 	pageTitle: 'Current Data'
 });
 
-const { user } = useUserSession();
 const { workouts, pending: workoutsPending } = useWorkouts();
 const { cycles, pending: cyclesPending } = useCycles();
 
@@ -137,8 +136,9 @@ const workoutColumns: TableColumn<WhoopWorkout>[] = [
 		header: 'ID'
 	},
 	{
-		accessorKey: 'sport_name',
-		header: 'Sport'
+		accessorKey: 'sport_id',
+		header: 'Sport',
+		cell: ({ row }) => getSportTypeDisplay(row.original.sport_id as WhoopSportType)
 	},
 	{
 		accessorKey: 'start',

@@ -6,6 +6,7 @@
 				<TimeframeSelect />
 			</div>
 		</div>
+		<ULink to="/current-data">See current data</ULink>
 	</div>
 </template>
 
