@@ -1,5 +1,7 @@
 export default defineNuxtRouteMiddleware(async (to) => {
-	const { user } = useUserSession()
+	const { loggedIn, user, fetch } = useUserSession();
+	await fetch();
+	console.log(loggedIn.value, user.value)
 
 	// If user is not authenticated and trying to access a protected route
 	if (!user.value && to.path !== '/login') {

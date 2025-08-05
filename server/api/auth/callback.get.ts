@@ -1,4 +1,5 @@
 import { defineEventHandler, getQuery, createError, sendRedirect } from 'h3'
+import { getAccessToken } from '../../utils/getAccessToken'
 
 export default defineEventHandler(async (event) => {
 	const config = useRuntimeConfig()
@@ -14,19 +15,14 @@ export default defineEventHandler(async (event) => {
 
 	try {
 		// Exchange authorization code for access token
-		const tokenResponse: WhoopTokenResponse = await $fetch('https://api.prod.whoop.com/oauth/oauth2/token', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/x-www-form-urlencoded'
-			},
-			body: new URLSearchParams({
-				client_id: config.whoop.clientId,
-				client_secret: config.whoop.clientSecret,
-				code: query.code as string,
-				grant_type: 'authorization_code',
-				redirect_uri: config.whoop.redirectUri
-			})
-		})
+		const tokenResponse: WhoopTokenResponse = await getAccessToken({
+			client_id: config.whoop.clientId,
+			client_secret: config.whoop.clientSecret,
+			redirect_uri: config.whoop.redirectUri,
+			code: query.code as string,
+		});
+
+		console.log(tokenResponse);
 
 		// Get user profile from Whoop
 		const userProfile: WhoopUserProfile = await $fetch('https://api.prod.whoop.com/developer/v2/user/profile/basic', {
@@ -45,7 +41,8 @@ export default defineEventHandler(async (event) => {
 				lastName: userProfile.last_name
 			},
 			whoopAccessToken: tokenResponse.access_token,
-			whoopRefreshToken: tokenResponse.refresh_token
+			whoopRefreshToken: tokenResponse.refresh_token,
+			whoopAccessTokenExpiresAt: new Date(Date.now() + tokenResponse.expires_in * 1000)
 		})
 
 		// Redirect to dashboard or home page

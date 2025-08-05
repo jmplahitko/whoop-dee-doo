@@ -1,3 +1,5 @@
+import { callWhoop } from '../../../utils/callWhoop';
+
 export default defineEventHandler(async (event) => {
 	const workoutId = getRouterParam(event, 'id')
 
@@ -9,21 +11,11 @@ export default defineEventHandler(async (event) => {
 	}
 
 	try {
-		// Get the access token from the session
-		const session = await getUserSession(event)
-		if (!session?.whoopAccessToken) {
-			throw createError({
-				statusCode: 401,
-				statusMessage: 'No access token found. Please authenticate first.'
-			})
-		}
 
 		// Fetch specific workout from WHOOP API
-		const workout = await $fetch(`https://api.prod.whoop.com/developer/v2/activity/workout/${workoutId}`, {
-			headers: {
-				Authorization: `Bearer ${session.whoopAccessToken}`
-			}
-		}) as any
+		const workout = await callWhoop(event, {
+			url: `https://api.prod.whoop.com/developer/v2/activity/workout/${workoutId}`
+		})
 
 		return {
 			workout

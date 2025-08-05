@@ -1,3 +1,6 @@
+import { WhoopCollectionResponse } from '~~/shared/types/whoop';
+import { callWhoop } from '../../../utils/callWhoop';
+
 export default defineEventHandler(async (event) => {
 	const query = getQuery(event);
 	let { sportName, startDate, endDate, limit = 25 } = query
@@ -17,33 +20,14 @@ export default defineEventHandler(async (event) => {
 		})
 	}
 
-	// Build query parameters for WHOOP API
-	const params = new URLSearchParams()
-
-	if (limit) {
-		params.append('limit', limit.toString())
-	}
-
-	if (startDate) {
-		params.append('start', startDate as string)
-	}
-
-	if (endDate) {
-		params.append('end', endDate as string)
-	}
 
 	try {
-		// Get the access token from the session
-		const session = await getUserSession(event)
-		if (!session?.whoopAccessToken) {
-			throw createError({
-				statusCode: 401,
-				statusMessage: 'No access token found. Please authenticate first.'
-			})
-		}
-
 		// Fetch workouts from WHOOP API
-		let response = await fetchWorkouts(event, params);
+		let response = await callWhoop<WhoopCollectionResponse<WhoopWorkout>>(event, {
+			url: 'https://api.prod.whoop.com/developer/v2/activity/workout',
+			params: query
+		});
+
 		let workouts = response.records || [];
 		let nextToken = response.next_token;
 		let error = null;
@@ -88,21 +72,6 @@ export default defineEventHandler(async (event) => {
 	}
 })
 
-async function fetchWorkouts(event: any, params: URLSearchParams): Promise<WhoopCollectionResponse<WhoopWorkout>> {
-	const session = await getUserSession(event)
-	if (!session?.whoopAccessToken) {
-		throw createError({
-			statusCode: 401,
-			statusMessage: 'No access token found. Please authenticate first.'
-		})
-	}
-
-	return await $fetch<WhoopCollectionResponse<WhoopWorkout>>(`https://api.prod.whoop.com/developer/v2/activity/workout?${params.toString()}`, {
-		headers: {
-			Authorization: `Bearer ${session.whoopAccessToken}`
-		}
-	}) as any
-}
 
 // Helper function to validate date format
 function isValidDate(dateString: string): boolean {

@@ -1,5 +1,6 @@
+import { callWhoop } from '../../../utils/callWhoop'
+
 export default defineEventHandler(async (event) => {
-	const config = useRuntimeConfig()
 	const cycleId = getRouterParam(event, 'id')
 
 	if (!cycleId) {
@@ -9,20 +10,9 @@ export default defineEventHandler(async (event) => {
 		})
 	}
 
-	// Get access token from session
-	const session = await getUserSession(event)
-	if (!session?.whoopAccessToken) {
-		throw createError({
-			statusCode: 401,
-			statusMessage: 'Unauthorized'
-		})
-	}
-
 	try {
-		const cycle = await $fetch<WhoopCycle>(`https://api.prod.whoop.com/developer/v2/cycle/${cycleId}`, {
-			headers: {
-				'Authorization': `Bearer ${session.whoopAccessToken}`
-			}
+		const cycle = await callWhoop<WhoopCycle>(event, {
+			url: `https://api.prod.whoop.com/developer/v2/cycle/${cycleId}`
 		})
 
 		return {

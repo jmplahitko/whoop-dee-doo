@@ -11,6 +11,7 @@ declare module '#auth-utils' {
 		user: User
 		whoopAccessToken: string
 		whoopRefreshToken: string
+		whoopAccessTokenExpiresAt: Date
 	}
 }
 

@@ -8,7 +8,7 @@ export default defineEventHandler(async (event) => {
 		client_id: config.whoop.clientId,
 		redirect_uri: config.whoop.redirectUri,
 		response_type: 'code',
-		scope: 'read:recovery read:cycles read:sleep read:workout read:profile read:body_measurement',
+		scope: 'read:recovery read:cycles read:sleep read:workout read:profile read:body_measurement offline',
 		state: generateRandomString(32)
 	})
 
