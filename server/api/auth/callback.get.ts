@@ -22,8 +22,6 @@ export default defineEventHandler(async (event) => {
 			code: query.code as string,
 		});
 
-		console.log(tokenResponse);
-
 		// Get user profile from Whoop
 		const userProfile: WhoopUserProfile = await $fetch('https://api.prod.whoop.com/developer/v2/user/profile/basic', {
 			headers: {
