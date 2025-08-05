@@ -3,7 +3,7 @@ import { callWhoop } from '../../../utils/callWhoop';
 
 export default defineEventHandler(async (event) => {
 	const query = getQuery(event);
-	let { sportName, startDate, endDate, limit = 25 } = query
+	let { startDate, endDate, limit = 25, nextToken } = query
 
 	// Validate date formats if provided
 	if (startDate && !isValidDate(startDate as string)) {
@@ -32,18 +32,9 @@ export default defineEventHandler(async (event) => {
 		let nextToken = response.next_token;
 		let error = null;
 
-		if (sportName) {
-			workouts = workouts.filter((workout: any) =>
-				workout.sport_name?.toLowerCase() === (sportName as string).toLowerCase()
-			)
-		}
-
-		let sportNames = workouts.map((workout: any) => workout.sport_name);
-		sportNames = [...new Set(sportNames)];
 
 		return {
 			workouts,
-			sportNames,
 			total: workouts.length,
 			nextToken
 		}
