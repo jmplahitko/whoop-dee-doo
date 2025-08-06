@@ -16,18 +16,46 @@ export const useCycles = () => {
 		watch: [currentTimeframe]
 	});
 
+
 	// Update cycles when data changes
 	watch(data, (newData) => {
 		if (newData?.cycles) {
 			cycles.value = newData.cycles;
+			nextToken.value = newData.nextToken;
 		}
 	}, { immediate: true });
 
+	// Function to load more cycles
+	const loadMore = async () => {
+		if (!nextToken.value) return;
+
+		try {
+			const response = await $fetch<WhoopCycleResponse>(toGetCycles(), {
+				query: {
+					startDate: currentTimeframe.value.startDate,
+					endDate: currentTimeframe.value.endDate,
+					nextToken: nextToken.value,
+					limit: 25
+				}
+			});
+
+			if (response.cycles) {
+				cycles.value.push(...response.cycles);
+				nextToken.value = response.nextToken;
+			}
+		} catch (error) {
+			console.error('Error loading more cycles:', error);
+		}
+	};
+
 	return {
 		cycles,
+		total: computed(() => cycles.value.length),
 		pending,
 		error,
-		refresh
+		refresh,
+		loadMore,
+		canLoadMore: computed(() => nextToken.value !== null)
 	};
 };
 

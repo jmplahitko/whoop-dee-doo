@@ -25,18 +25,20 @@ export default defineEventHandler(async (event) => {
 		// Fetch workouts from WHOOP API
 		let response = await callWhoop<WhoopCollectionResponse<WhoopWorkout>>(event, {
 			url: 'https://api.prod.whoop.com/developer/v2/activity/workout',
-			params: query
+			params: {
+				start: startDate,
+				end: endDate,
+				limit,
+				nextToken
+			}
 		});
 
-		let workouts = response.records || [];
-		let nextToken = response.next_token;
-		let error = null;
-
+		const workouts = response.records || [];
+		const _nextToken = response.next_token;
 
 		return {
 			workouts,
-			total: workouts.length,
-			nextToken
+			nextToken: _nextToken
 		}
 
 	} catch (error: any) {

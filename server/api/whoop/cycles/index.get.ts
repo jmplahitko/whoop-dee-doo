@@ -2,7 +2,7 @@ import { WhoopCollectionResponse } from '~~/shared/types/whoop'
 import { callWhoop } from '../../../utils/callWhoop'
 
 export default defineEventHandler(async (event) => {
-	const query = getQuery(event)
+	const query = getQuery(event);
 
 	try {
 		const response = await callWhoop<WhoopCollectionResponse<WhoopCycle>>(event, {
@@ -13,7 +13,10 @@ export default defineEventHandler(async (event) => {
 				end: query.endDate,
 				nextToken: query.nextToken
 			}
-		})
+		});
+
+		// TODO: WHOOP API is not returning next_token
+		// console.log(response.next_token)
 
 		return {
 			cycles: response.records,
