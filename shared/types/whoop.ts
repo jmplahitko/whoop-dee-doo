@@ -217,6 +217,37 @@ export interface WhoopUserProfile {
 	last_name: string
 }
 
+export interface WhoopRecoveryQuery {
+	startDate?: string;
+	endDate?: string;
+	limit?: number;
+	nextToken?: string;
+}
+
+export interface WhoopRecoveryScore {
+	user_calibrating: boolean;
+	recovery_score: number;
+	resting_heart_rate: number;
+	hrv_rmssd_milli: number;
+	spo2_percentage?: number;
+	skin_temp_celsius?: number;
+}
+
+export interface WhoopRecovery {
+	cycle_id: number;
+	sleep_id: string;
+	user_id: number;
+	created_at: string;
+	updated_at: string;
+	score_state: string;
+	score?: WhoopRecoveryScore;
+}
+
+export interface WhoopRecoveryResponse {
+	recoveries: WhoopRecovery[]
+	nextToken: string | null
+}
+
 export interface WhoopCollectionResponse<T> {
 	records: T[]
 	next_token: string | null
