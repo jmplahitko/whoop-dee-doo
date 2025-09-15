@@ -1,15 +1,15 @@
 <template>
-	<div class="relative inline-flex items-center justify-center">
-		<svg class="w-8 h-8 transform -rotate-90" viewBox="0 0 32 32">
+	<div class="relative inline-flex items-center justify-center" :class="sizeClass">
+		<svg class="w-full h-full transform -rotate-90" viewBox="0 0 32 32">
 			<!-- Background circle -->
-			<circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="2" fill="none" class="text-gray-600" />
+			<circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="2.5" fill="none" class="text-steel-500" />
 			<!-- Progress circle -->
-			<circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="2" fill="none" :stroke-dasharray="circumference" :stroke-dashoffset="strokeDashoffset" :class="progressColor"
+			<circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="2.5" fill="none" :stroke-dasharray="circumference" :stroke-dashoffset="strokeDashoffset" :class="progressColor"
 				stroke-linecap="round" />
 		</svg>
 		<!-- Value in center -->
 		<div class="absolute inset-0 flex items-center justify-center">
-			<span class="text-xs font-medium" :class="progressColor">
+			<span :class="['font-mono', textSizeClass]">
 				{{ displayValue }}
 			</span>
 		</div>
@@ -22,11 +22,43 @@ type MetricType = 'strain' | 'recovery' | 'sleep';
 interface Props {
 	value: number | null | undefined;
 	type: MetricType;
-	size?: 'sm' | 'md' | 'lg';
+	size?: 'sm' | 'md' | 'lg' | 'xl';
 }
 
 const props = withDefaults(defineProps<Props>(), {
 	size: 'md'
+});
+
+// Size classes
+const sizeClass = computed(() => {
+	switch (props.size) {
+		case 'sm':
+			return 'w-4 h-4';
+		case 'md':
+			return 'w-8 h-8';
+		case 'lg':
+			return 'w-16 h-16';
+		case 'xl':
+			return 'w-32 h-32';
+		default:
+			return props.size;
+	}
+});
+
+// Text size classes based on component size
+const textSizeClass = computed(() => {
+	switch (props.size) {
+		case 'sm':
+			return 'text-sm';
+		case 'md':
+			return 'text-md';
+		case 'lg':
+			return 'text-lg';
+		case 'xl':
+			return 'text-3xl';
+		default:
+			return 'text-md';
+	}
 });
 
 // Calculate circumference (2 * π * radius)

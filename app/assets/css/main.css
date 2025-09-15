@@ -1,65 +1,66 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
 
-/* Uses Whoop Color Palette */
-:root {
-  --black: #000000;
-  --gray: #6B7280;
-  --white: #FFFFFF;
-  --teal: #00F19F;
-  --sky: #67AEE6;
-  --green: #16EC06;
-  --yellow: #FFDE00;
-  --red: #FF0026;
-  --slate: #7BA1BB;
-  --blue: #0093E7;
-  --ui-bg: #101518;
-}
 
 @theme {
-  --color-black: var(--black);
-  --color-gray: var(--gray);
-  --color-white: var(--white);
-  --color-teal: var(--teal);
-  --color-sky: var(--sky);
-  --color-green: var(--green);
-  --color-yellow: var(--yellow);
-  --color-red: var(--red);
-  --color-slate: var(--slate);
-  --color-blue: var(--blue);
+  --color-black: #000000;
+  --color-white: #FFFFFF;
+  --color-teal: #00F19F;
+  --color-sky: #67AEE6;
+  --color-green: #16EC06;
+  --color-yellow: #FFDE00;
+  --color-red: #FF0026;
+  --color-slate: #7BA1BB;
+  --color-blue: #0093E7;
 
-  --color-recovery: var(--sky);
-  --color-recovery-high: var(--green);
-  --color-recovery-medium: var(--yellow);
-  --color-recovery-low: var(--red);
-  --color-sleep: var(--slate);
-  --color-strain: var(--blue);
+  --color-recovery: var(--color-sky);
+  --color-recovery-high: var(--color-green);
+  --color-recovery-medium: var(--color-yellow);
+  --color-recovery-low: var(--color-red);
+  --color-sleep: var(--color-slate);
+  --color-strain: var(--color-blue);
   
   /* Extend existing colors with Whoop palette */
-  --color-primary: var(--teal);
-  --color-secondary: var(--blue);
-  --color-success: var(--green);
-  --color-warning: var(--yellow);
-  --color-error: var(--red);
-  --color-info: var(--sky);
+  --color-primary: var(--color-teal);
+  --color-secondary: var(--color-blue);
+  --color-success: var(--color-green);
+  --color-warning: var(--color-yellow);
+  --color-error: var(--color-red);
+  --color-info: var(--color-sky);
+  --color-neutral: var(--color-steel-700)
 
-  --color-gray-50: #6B7280;
-  --color-gray-100: #5B6370;
-  --color-gray-200: #4B5563;
-  --color-gray-300: #434A57;
-  --color-gray-400: #374151;
-  --color-gray-500: #30363F;
-  --color-gray-600: #283339;
-  --color-gray-700: #1C222A;
-  --color-gray-800: #161A1F;
-  --color-gray-900: #101518;
+  --color-steel-50: #F1F5F9;
+  --color-steel-100: #E2E8F0;
+  --color-steel-200: #CBD5E1;
+  --color-steel-300: #94A3B8;
+  --color-steel-400: #64748B;
+  --color-steel-500: #274759;
+  --color-steel-600: #1b3440;
+  --color-steel-700: #182a35;
+  --color-steel-800: #12222b;
+  --color-steel-900: #101518;
+
+  /* Custom Gray Scale */
+  --color-gray-50: #FAFAFA;
+  --color-gray-100: #F5F5F5;
+  --color-gray-200: #EEEEEE;
+  --color-gray-300: #E0E0E0;
+  --color-gray-400: #BDBDBD;
+  --color-gray-500: #B3B3B3;
+  --color-gray-600: #9E9E9E;
+  --color-gray-700: #757575;
+  --color-gray-800: #616161;
+  --color-gray-900: #424242;
+
 
   /* Font Families */
-  --font-headline: 'Proxima Nova', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
-  --font-body: 'Proxima Nova', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
-  --font-numbers: 'DINPro', 'DIN Alternate', Arial, sans-serif;
+  --default-font-family: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-sans: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-serif: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono: "DINPro", "Helvetica Neue", Helvetica, Arial, monospace;
 
   /* Typography Styles */
+  --font-color: var(--color-white);
   --font-weight-headline: 700;
   --font-weight-body: 600;
   --font-weight-numbers: 700;
@@ -73,4 +74,49 @@
   --text-transform-headline: uppercase;
   --text-transform-body: none;
   --text-transform-numbers: none;
+}
+/* Uses Whoop Color Palette */
+:root {
+    /* Core UI tokens */
+    --ui-radius: 0.5rem;
+    --ui-container: 90rem;
+    /* --ui-bg: var(--color-white);
+    --ui-text: var(--color-gray-900);
+    --ui-border: var(--color-gray-200); */
+    --ui-bg: var(--color-steel-700);
+    --ui-text: var(--font-color);
+    --ui-text-muted: var(--color-gray-500);
+    --ui-border: var(--color-steel-500);
+    --ui-bg-elevated: var(--color-steel-600);
+    --ui-bg-active: var(--color-steel-600);
+    --ui-bg-elevated-active: var(--color-steel-600);
+    /* --ui-font-family: var(--default-font-family);
+    --ui-font-headline: var(--font-headline); */
+    /* --ui-font-body: var(--font-body);
+    --ui-font-numbers: var(--font-numbers);
+    --ui-font-weight-headline: var(--font-weight-headline);
+    --ui-font-weight-body: var(--font-weight-body);
+    --ui-font-weight-numbers: var(--font-weight-numbers);
+    --ui-font-letter-spacing-headline: var(--font-letter-spacing-headline);
+    --ui-font-letter-spacing-body: var(--font-letter-spacing-body);
+    --ui-font-letter-spacing-numbers: var(--font-letter-spacing-numbers);
+    --ui-font-text-transform-headline: var(--font-text-transform-headline);
+    --ui-font-text-transform-body: var(--font-text-transform-body);
+    --ui-font-text-transform-numbers: var(--font-text-transform-numbers); */
+    
+    
+    /* Semantic color tokens */
+    --ui-primary: var(--color-primary-500);
+    --ui-secondary: var(--color-gray-500);
+    --ui-success: var(--color-green-500);
+    --ui-info: var(--color-blue-500);
+    --ui-warning: var(--color-orange-500);
+    --ui-error: var(--color-red-500);
+    --ui-neutral: var(--color-steel-700);
+}
+
+:dark {
+    --ui-bg: var(--color-steel-700);
+    --ui-text: var(--color-gray-500);
+    --ui-border: var(--color-steel-200);
 }

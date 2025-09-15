@@ -8,9 +8,10 @@ export default defineNuxtConfig({
 		'@nuxt/ui',
 		'nuxt-auth-utils'
 	],
-	css: ['assets/css/main.css'],
+	css: ['assets/css/fonts.css', 'assets/css/main.css'],
 	ui: {
-		fonts: false
+		colorMode: true,
+		fonts: false,
 	},
 	alias: {
 		'@model': path.resolve(__dirname, 'model')
