@@ -32,16 +32,56 @@
 		<!-- <ULink to="/current-data">See current data</ULink> -->
 		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 			<UCard variant="subtle">
-				Recovery Score
+				<div class="flex items-center justify-between pb-2">
+					<p>Recovery Score</p>
+					<UIcon name="i-lucide-activity" class="w-4 h-4" />
+				</div>
+				<p class="text-2xl font-bold"><span class="text-white">78</span><span class="ml-1">%</span></p>
+				<div class="flex items-center justify-between mt-1">
+					<p class="text-xs">Good recovery</p>
+					<p class="text-xs font-medium text-recovery-high">
+						↗ +5% vs yesterday
+					</p>
+				</div>
 			</UCard>
 			<UCard variant="subtle">
-				Sleep Score
+				<div class="flex items-center justify-between">
+					<p>Sleep Score</p>
+					<UIcon name="i-lucide-moon" class="w-4 h-4" />
+				</div>
+				<p class="text-2xl font-bold"><span class="text-white">85</span><span class="ml-1">%</span></p>
+				<div class="flex items-center justify-between mt-1">
+					<p class="text-xs">8h 24m total</p>
+					<p class="text-xs font-medium text-recovery-high">
+						↗ +12% vs avg
+					</p>
+				</div>
 			</UCard>
 			<UCard variant="subtle">
-				Daily Strain
+				<div class="flex items-center justify-between">
+					<p>Daily Strain</p>
+					<UIcon name="i-lucide-zap" class="w-4 h-4" />
+				</div>
+				<p class="text-2xl font-bold"><span class="text-white">14.2</span></p>
+				<div class="flex items-center justify-between mt-1">
+					<p class="text-xs">Moderate Effort</p>
+					<p class="text-xs">
+						Target: 15.0
+					</p>
+				</div>
 			</UCard>
 			<UCard variant="subtle">
-				Resting HR
+				<div class="flex items-center justify-between">
+					<p>Resting HR</p>
+					<UIcon name="i-lucide-heart" class="w-4 h-4" />
+				</div>
+				<p class="text-2xl font-bold"><span class="text-white">52</span><span class="text-lg ml-1">bpm</span></p>
+				<div class="flex items-center justify-between mt-1">
+					<p class="text-xs">Well rested</p>
+					<p class="text-xs font-medium text-recovery-high">
+						↙ -3 vs avg
+					</p>
+				</div>
 			</UCard>
 		</div>
 	</div>
