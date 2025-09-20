@@ -32,9 +32,9 @@ export default defineAppConfig({
 		card: {
 			slots: {
 				root: 'bg-default rounded-md text-muted',
-				header: 'p-4 sm:px-6',
+				header: 'p-4 pb-0 sm:p-6 sm:pb-0 border-b-0',
 				body: 'p-4 sm:p-6 text-sm',
-				footer: 'p-4 sm:px-6'
+				footer: 'p-4 sm:p-6'
 			},
 			variants: {
 				variant: {

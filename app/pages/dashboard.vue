@@ -84,6 +84,35 @@
 				</div>
 			</UCard>
 		</div>
+		<UCard variant="subtle">
+			<template #header>
+				<div class="text-2xl text-white font-semibold leading-none tracking-tight flex items-center gap-2">
+					<UIcon name="i-lucide-target" class="w-5 h-5" />
+					<h2 class="uppercase">Fitness Goals</h2>
+				</div>
+				<p class="mt-1 text-sm text-muted">Track your progress towards your daily and weekly targets</p>
+			</template>
+			<UCard variant="soft" :ui="{ body: 'sm:p-4' }">
+				<div class="flex align-center justify-between mb-2 text-white">
+					<h3 class="text-md font-bold uppercase tracking-wide">Overall Achievement</h3>
+					<span class="text-lg font-bold">94%</span>
+				</div>
+				<div class="relative w-full overflow-hidden rounded-full bg-steel-500 h-3 mb-2">
+					<div class="h-full w-full flex-1 bg-primary transition-all" style="transform: translateX(-6%);"></div>
+				</div>
+				<p class="text-xs">Great progress! Focus on sleep consistency to reach 100%.</p>
+			</UCard>
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+				<UCard variant="outline" :ui="{ body: 'sm:p-4' }">
+					<div class="flex items-center justify-between">
+						<div class="flex items-center gap-2">
+							<UIcon name="i-lucide-trending-down" class="w-4 h-4 text-orange" />
+							<span class="text-sm font-medium">Sleep</span>
+						</div>
+					</div>
+				</UCard>
+			</div>
+		</UCard>
 	</div>
 </template>
 
