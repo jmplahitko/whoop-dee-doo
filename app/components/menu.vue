@@ -1,5 +1,5 @@
 <template>
-	<div class="bg-steel-800 w-[255px]">
+	<div class="bg-steel-800 w-[255px] border-r border-steel-500">
 		<p class="text-sm font-medium text-muted pt-4 pl-4">WHOOP Workout Planner</p>
 		<UNavigationMenu orientation="vertical" :items="items" variant="pill" highlight-color="neutral" :ui="{
 			root: 'flex flex-col gap-1 w-[255px] p-2',
