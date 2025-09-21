@@ -11,14 +11,20 @@ export default defineAppConfig({
 			variants: {
 				size: {
 					xs: {
-						base: 'rounded-xs',
+						base: 'text-[8px]/3 px-2 py-0.5 gap-1 rounded-xs',
 					},
 					sm: {
-						base: 'rounded-xs',
+						base: 'text-[10px]/3 px-2 py-0.5 gap-1 rounded-xs',
 					},
 					md: {
-						base: 'rounded-xs',
+						base: 'text-xs/4 px-2 py-0.5 gap-0.5 rounded-xs',
 					},
+					lg: {
+						base: 'text-sm/5 px-2.5 py-0.5 gap-1.5 rounded-xs',
+					},
+					xl: {
+						base: 'text-base/4 px-3 py-1 gap-1.5 rounded-xs',
+					}
 				},
 			},
 			compoundVariants: [

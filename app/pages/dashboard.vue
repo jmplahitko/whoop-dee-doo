@@ -104,11 +104,55 @@
 			</UCard>
 			<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
 				<UCard variant="outline" :ui="{ body: 'sm:p-4' }">
-					<div class="flex items-center justify-between">
+					<div class="flex items-center justify-between mb-2">
 						<div class="flex items-center gap-2">
 							<UIcon name="i-lucide-trending-down" class="w-4 h-4 text-orange" />
 							<span class="text-sm font-medium">Sleep</span>
 						</div>
+						<UBadge variant="solid" color="warning">93%</UBadge>
+					</div>
+					<div class="flex justify-between text-xs text-muted-foreground">
+						<span>Target: 8h</span>
+						<span>Current: 7h 38m</span>
+					</div>
+				</UCard>
+				<UCard variant="outline" :ui="{ body: 'sm:p-4' }">
+					<div class="flex items-center justify-between mb-2">
+						<div class="flex items-center gap-2">
+							<UIcon name="i-lucide-trending-down" class="w-4 h-4 text-orange" />
+							<span class="text-sm font-medium">Recovery</span>
+						</div>
+						<UBadge variant="solid" color="warning">93%</UBadge>
+					</div>
+					<div class="flex justify-between text-xs text-muted-foreground">
+						<span>Target: 80%</span>
+						<span>Current: 74%</span>
+					</div>
+				</UCard>
+				<UCard variant="outline" :ui="{ body: 'sm:p-4' }">
+					<div class="flex items-center justify-between mb-2">
+						<div class="flex items-center gap-2">
+							<UIcon name="i-lucide-circle-check-big" class="w-4 h-4 text-success" />
+							<span class="text-sm font-medium">Weekly Workouts</span>
+						</div>
+						<UBadge variant="solid" color="success">93%</UBadge>
+					</div>
+					<div class="flex justify-between text-xs text-muted-foreground">
+						<span>Target: 4</span>
+						<span>Current: 4.5</span>
+					</div>
+				</UCard>
+				<UCard variant="outline" :ui="{ body: 'sm:p-4' }">
+					<div class="flex items-center justify-between mb-2">
+						<div class="flex items-center gap-2">
+							<UIcon name="i-lucide-trending-up" class="w-4 h-4 text-strain" />
+							<span class="text-sm font-medium">Daily Strain</span>
+						</div>
+						<UBadge variant="solid" color="info">93%</UBadge>
+					</div>
+					<div class="flex justify-between text-xs text-muted-foreground">
+						<span>Target: 15</span>
+						<span>Current: 14.1 </span>
 					</div>
 				</UCard>
 			</div>

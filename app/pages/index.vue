@@ -1,5 +1,12 @@
 <template>
 	<div class="p-8">
+		<div class="flex items-center gap-2">
+			<UBadge variant="solid" color="info" size="xl">93%</UBadge>
+			<UBadge variant="solid" color="info" size="lg">93%</UBadge>
+			<UBadge variant="solid" color="info" size="md">93%</UBadge>
+			<UBadge variant="solid" color="info" size="sm">93%</UBadge>
+			<UBadge variant="solid" color="info" size="xs">93%</UBadge>
+		</div>
 		<table class="border-collapse">
 			<thead>
 				<tr>
