@@ -89,30 +89,30 @@
 					<td class="w-20 h-16"></td>
 				</tr>
 				<tr>
-					<td class="bg-blue-400 w-20 h-16 text-white text-center">400</td>
-					<td class="bg-sky-400 w-20 h-16 text-white text-center">400</td>
-					<td class="bg-teal-400 w-20 h-16 text-white text-center">400</td>
-					<td class="bg-green-400 w-20 h-16 text-white text-center">400</td>
-					<td class="bg-yellow-400 w-20 h-16 text-white text-center">400</td>
-					<td class="bg-orange-400 w-20 h-16 text-white text-center">400</td>
-					<td class="bg-red-400 w-20 h-16 text-white text-center">400</td>
-					<td class="bg-slate-400 w-20 h-16 text-white text-center">400</td>
-					<td class="bg-steel-400 w-20 h-16 text-white text-center">400</td>
-					<td class="bg-gray-400 w-20 h-16 text-white text-center">400</td>
+					<td class="bg-blue-400 w-20 h-16 text-blue-900 text-center">400</td>
+					<td class="bg-sky-400 w-20 h-16 text-sky-900 text-center">400</td>
+					<td class="bg-teal-400 w-20 h-16 text-teal-900 text-center">400</td>
+					<td class="bg-green-400 w-20 h-16 text-green-900 text-center">400</td>
+					<td class="bg-yellow-400 w-20 h-16 text-yellow-900 text-center">400</td>
+					<td class="bg-orange-400 w-20 h-16 text-orange-900 text-center">400</td>
+					<td class="bg-red-400 w-20 h-16 text-red-900 text-center">400</td>
+					<td class="bg-slate-400 w-20 h-16 text-slate-900 text-center">400</td>
+					<td class="bg-steel-400 w-20 h-16 text-steel-900 text-center">400</td>
+					<td class="bg-gray-400 w-20 h-16 text-gray-900 text-center">400</td>
 					<td class="w-20 h-16"></td>
 					<td class="w-20 h-16"></td>
 				</tr>
 				<tr>
-					<td class="bg-blue-300 w-20 h-16 text-white text-center">300</td>
-					<td class="bg-sky-300 w-20 h-16 text-white text-center">300</td>
-					<td class="bg-teal-300 w-20 h-16 text-white text-center">300</td>
-					<td class="bg-green-300 w-20 h-16 text-white text-center">300</td>
-					<td class="bg-yellow-300 w-20 h-16 text-white text-center">300</td>
-					<td class="bg-orange-300 w-20 h-16 text-white text-center">300</td>
-					<td class="bg-red-300 w-20 h-16 text-white text-center">300</td>
-					<td class="bg-slate-300 w-20 h-16 text-white text-center">300</td>
-					<td class="bg-steel-300 w-20 h-16 text-white text-center">300</td>
-					<td class="bg-gray-300 w-20 h-16 text-white text-center">300</td>
+					<td class="bg-blue-300 w-20 h-16 text-blue-900 text-center">300</td>
+					<td class="bg-sky-300 w-20 h-16 text-sky-900 text-center">300</td>
+					<td class="bg-teal-300 w-20 h-16 text-teal-900 text-center">300</td>
+					<td class="bg-green-300 w-20 h-16 text-green-900 text-center">300</td>
+					<td class="bg-yellow-300 w-20 h-16 text-yellow-900 text-center">300</td>
+					<td class="bg-orange-300 w-20 h-16 text-orange-900 text-center">300</td>
+					<td class="bg-red-300 w-20 h-16 text-red-900 text-center">300</td>
+					<td class="bg-slate-300 w-20 h-16 text-slate-900 text-center">300</td>
+					<td class="bg-steel-300 w-20 h-16 text-steel-900 text-center">300</td>
+					<td class="bg-gray-300 w-20 h-16 text-gray-900 text-center">300</td>
 					<td class="w-20 h-16"></td>
 					<td class="w-20 h-16"></td>
 				</tr>
