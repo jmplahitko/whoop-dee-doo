@@ -10,6 +10,8 @@
   --color-green: #16EC06;
   --color-yellow: #FFDE00;
   --color-red: #FF0026;
+  --color-orange: #9d3a19;
+  /* --color-orange: #7c2d12; */
   --color-slate: #7BA1BB;
   --color-blue: #0093E7;
 
@@ -27,7 +29,7 @@
   --color-warning: var(--color-yellow);
   --color-error: var(--color-red);
   --color-info: var(--color-sky);
-  --color-neutral: var(--color-steel-700)
+  --color-neutral: var(--color-steel-700);
 
   --color-steel-50: #F1F5F9;
   --color-steel-100: #E2E8F0;
